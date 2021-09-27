@@ -28,8 +28,8 @@ else
 fi
 
 find "$directory" -type d -name ".git" \
-    -exec echo -n "### "          \; \
-    -exec dirname {}              \; \
-    -exec git -C "{}/.." fetch    \; \
-    -exec git -C "{}/.." status   \; \
-    -exec echo                    \;
+    -exec echo -n "### "              \; \
+    -exec dirname {}                  \; \
+    -exec git -C "{}/.." fetch        \; \
+    -exec git -C "{}/.." status -bs   \; \
+    -exec echo                        \;
