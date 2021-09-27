@@ -1,0 +1,35 @@
+#!/bin/bash
+
+set -e
+
+show_help() {
+    echo "Usage:"
+    echo "    $0 [directory]"
+    echo "    $0 -h|--help"
+    echo "Examples:"
+    echo "    $0"
+    echo "    $0 ./my-git-repos/"
+}
+
+# Parse the arguments
+if [[ $# -eq 0 ]]; then
+    directory="."
+elif [[ $# -eq 1 ]]; then
+    if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+        show_help
+        exit 0
+    else
+        directory="$1"
+    fi
+else
+    echo "Too many arguments"
+    show_help
+    exit 1
+fi
+
+find "$directory" -type d -name ".git" \
+    -exec echo -n "### "          \; \
+    -exec dirname {}              \; \
+    -exec git -C "{}/.." fetch    \; \
+    -exec git -C "{}/.." status   \; \
+    -exec echo                    \;

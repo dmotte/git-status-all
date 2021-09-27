@@ -24,7 +24,7 @@ If you execute the *git-status-all* script inside the `my-git-repos` folder, it 
 ## Usage
 
 ```bash
-git status-all
+git status-all [directory]
 ```
 
 Note that, for it to be found by Git, you need to install it in a directory in your `$PATH` (see [below](#installation)).
