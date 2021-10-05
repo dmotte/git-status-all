@@ -27,6 +27,8 @@ If you execute the *git-status-all* script inside the `my-git-repos` folder, it 
 git status-all [dir1 [dir2 [...]]]
 ```
 
+See `git status-all --help` for more information.
+
 Note that, for the script to be found by Git, you need to install it in a directory in your `$PATH` (see [below](#installation)).
 
 ## Installation
