@@ -35,10 +35,10 @@ status_folders() {
     done
 }
 
-if [[ $# -eq 0 ]]; then
+if [ $# -eq 0 ]; then
     status_folders "."
 else
-    if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+    if [ "$1" = "-h" || "$1" = "--help" ]; then
         show_help
         exit 0
     else
